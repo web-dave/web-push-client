@@ -1,0 +1,57 @@
+<h1>
+  {{ title }}
+</h1>
+<form [formGroup]="pushForm" (ngSubmit)="send()">
+  <div
+    class="section"
+    [formGroup]="pushForm.get('payload').get('notification')"
+  >
+    <h2>Message</h2>
+    <label for="title">title</label>
+    <input type="text" id="title" name="title" formControlName="title" />
+    <label for="body">body</label>
+    <input type="text" id="body" name="body" formControlName="body" />
+    <label for="icon">icon</label>
+    <input type="text" id="icon" name="icon" formControlName="icon" />
+  </div>
+  <div class="section" [formGroup]="pushForm.get('pushSubscription')">
+    <h2>PushSubscription</h2>
+    <label for="endpoint">endpoint</label>
+    <input
+      type="text"
+      id="endpoint"
+      name="endpoint"
+      formControlName="endpoint"
+    />
+    <div [formGroup]="pushForm.get('pushSubscription').get('keys')">
+      <label for="auth">auth</label>
+      <input type="text" id="auth" name="auth" formControlName="auth" />
+      <label for="p256dh">p256dh</label>
+      <input type="text" id="p256dh" name="p256dh" formControlName="p256dh" />
+    </div>
+  </div>
+  <div
+    class="section"
+    [formGroup]="pushForm.get('options').get('vapidDetails')"
+  >
+    <h2>VapidDetails</h2>
+    <label for="subject">subject</label>
+    <input type="text" id="subject" name="subject" formControlName="subject" />
+    <label for="privateKey">privateKey</label>
+    <input
+      type="text"
+      id="privateKey"
+      name="privateKey"
+      formControlName="privateKey"
+    />
+    <label for="publicKey">publicKey</label>
+    <input
+      type="text"
+      id="publicKey"
+      name="publicKey"
+      formControlName="publicKey"
+    />
+  </div>
+  <button type="submit">Send it</button>
+</form>
+<pre>{{ resp | json }}</pre>
