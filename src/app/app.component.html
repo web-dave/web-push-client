@@ -8,11 +8,11 @@
   >
     <h2>Message</h2>
     <label for="title">title</label>
-    <input type="text" id="title" name="title" formControlName="title" />
+    <input type="text" id="title" placeholder="title" formControlName="title" />
     <label for="body">body</label>
-    <input type="text" id="body" name="body" formControlName="body" />
+    <input type="text" id="body" placeholder="body" formControlName="body" />
     <label for="icon">icon</label>
-    <input type="text" id="icon" name="icon" formControlName="icon" />
+    <input type="text" id="icon" placeholder="icon" formControlName="icon" />
   </div>
   <div class="section" [formGroup]="pushForm.get('pushSubscription')">
     <h2>PushSubscription</h2>
@@ -20,14 +20,19 @@
     <input
       type="text"
       id="endpoint"
-      name="endpoint"
+      placeholder="endpoint"
       formControlName="endpoint"
     />
     <div [formGroup]="pushForm.get('pushSubscription').get('keys')">
       <label for="auth">auth</label>
-      <input type="text" id="auth" name="auth" formControlName="auth" />
+      <input type="text" id="auth" placeholder="auth" formControlName="auth" />
       <label for="p256dh">p256dh</label>
-      <input type="text" id="p256dh" name="p256dh" formControlName="p256dh" />
+      <input
+        type="text"
+        id="p256dh"
+        placeholder="p256dh"
+        formControlName="p256dh"
+      />
     </div>
   </div>
   <div
@@ -36,19 +41,24 @@
   >
     <h2>VapidDetails</h2>
     <label for="subject">subject</label>
-    <input type="text" id="subject" name="subject" formControlName="subject" />
+    <input
+      type="text"
+      id="subject"
+      placeholder="subject"
+      formControlName="subject"
+    />
     <label for="privateKey">privateKey</label>
     <input
       type="text"
       id="privateKey"
-      name="privateKey"
+      placeholder="privateKey"
       formControlName="privateKey"
     />
     <label for="publicKey">publicKey</label>
     <input
       type="text"
       id="publicKey"
-      name="publicKey"
+      placeholder="publicKey"
       formControlName="publicKey"
     />
   </div>
